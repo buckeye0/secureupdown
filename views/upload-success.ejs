@@ -1,0 +1,26 @@
+<!-- upload-success.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Success</title>
+  <style>
+    /* Add your custom CSS styles here */
+  </style>
+</head>
+<body>
+  <h1>Upload Successful!</h1>
+  <p>Download Link:</p>
+  <input type="text" id="downloadLink" value="http://<%= hostname %><%= downloadLink %>" readonly>
+  <button onclick="copyToClipboard()">Copy</button>
+
+  <script>
+    function copyToClipboard() {
+      var copyText = document.getElementById("downloadLink");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+      document.execCommand("copy");
+      alert("Download link copied to clipboard!");
+    }
+  </script>
+</body>
+</html>
